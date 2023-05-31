@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="未读书单, Pensieve">
+    <meta name="keywords" content="Linux 常用命令, Pensieve">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>未读书单 | Pensieve</title>
+    <title>Linux 常用命令 | Pensieve</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -249,12 +249,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">未读书单</h1>
+                    <h1 class="description center-align post-title">Linux 常用命令</h1>
                 </div>
             </div>
         </div>
@@ -368,9 +368,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -378,8 +382,12 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%AF%BB%E4%B9%A6/" class="post-category">
-                                读书
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/%E7%AC%94%E8%AE%B0/" class="post-category">
+                                笔记
                             </a>
                         
                     </div>
@@ -391,7 +399,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-14
+                    2023-05-31
                 </div>
                 
 
@@ -400,7 +408,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    64
+                    133
                 </div>
                 
 
@@ -420,20 +428,26 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="谋生"><a href="#谋生" class="headerlink" title="谋生"></a>谋生</h1><ul>
-<li>Kubernetes 源码剖析 2021年3月20日</li>
-<li>深入浅出Istio</li>
-<li>Docker技术入门与实战</li>
-</ul>
-<h1 id="谋心"><a href="#谋心" class="headerlink" title="谋心"></a>谋心</h1><ul>
-<li>王阳明全集</li>
-<li>你的生活需要仪式感</li>
-<li>国家地理系列之走遍中国</li>
-</ul>
-<h1 id="谋食"><a href="#谋食" class="headerlink" title="谋食"></a>谋食</h1><ul>
-<li>好吃易做大众菜</li>
-<li>吃得明白</li>
-</ul>
+                <h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h3 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sed</span> <span class="token parameter variable">-i</span> <span class="token string">'s#old/string#new/string#g'</span> /etc/nginx/nginx.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">grep</span> <span class="token parameter variable">-nr</span> <span class="token string">"text"</span> <span class="token builtin class-name">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="批量"><a href="#批量" class="headerlink" title="批量"></a>批量</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ls</span> -l<span class="token operator">|</span><span class="token function">grep</span> ^d<span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'{print NR": "$9}'</span><span class="token operator">|</span><span class="token function">xargs</span> <span class="token parameter variable">-I</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token builtin class-name">echo</span> <span class="token string">"Num {}"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="以其他用户执行命令"><a href="#以其他用户执行命令" class="headerlink" title="以其他用户执行命令"></a>以其他用户执行命令</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">su</span> tomcat <span class="token parameter variable">-c</span> <span class="token function">id</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="操作用户-amp-用户组"><a href="#操作用户-amp-用户组" class="headerlink" title="操作用户&amp;用户组"></a>操作用户&amp;用户组</h2><h3 id="添加用户"><a href="#添加用户" class="headerlink" title="添加用户"></a>添加用户</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">username</span><span class="token operator">=</span>xxx
+<span class="token assign-left variable">password</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">cat</span> /dev/urandom <span class="token operator">|</span> <span class="token function">tr</span> <span class="token parameter variable">-dc</span> A-Za-z0-9 <span class="token operator">|</span> <span class="token function">head</span> <span class="token parameter variable">-c</span> <span class="token number">32</span><span class="token variable">`</span></span>
+<span class="token assign-left variable">expire_date</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">date</span> <span class="token parameter variable">-v</span> +10y +%Y-%m-%d<span class="token variable">`</span></span>
+<span class="token function">useradd</span> <span class="token parameter variable">-m</span> <span class="token parameter variable">-d</span> /home/<span class="token variable">$username</span>/ <span class="token parameter variable">-U</span> <span class="token parameter variable">-s</span> /bin/bash <span class="token parameter variable">-e</span> <span class="token variable">$expire_date</span> <span class="token variable">$username</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$username</span><span class="token builtin class-name">:</span><span class="token variable">$password</span> <span class="token operator">|</span> chpasswd<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="用户过期时间"><a href="#用户过期时间" class="headerlink" title="用户过期时间"></a>用户过期时间</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">chage <span class="token parameter variable">-l</span> tomcat
+chage <span class="token parameter variable">-M</span> <span class="token number">99999</span> tomcat
+<span class="token function">passwd</span> <span class="token parameter variable">-x</span> <span class="token number">99999</span> tomcat<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="更改用户id-用户组id"><a href="#更改用户id-用户组id" class="headerlink" title="更改用户id 用户组id"></a>更改用户id 用户组id</h3><pre><code class="shell">usermod -u 66666 tomcat
+groupmod -g 66666 tomcat```
+</code></pre>
 
                 
             </div>
@@ -460,7 +474,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.kinson.fun/2021/03/14/read/wei-du-shu-dan/">https://www.kinson.fun/2021/03/14/read/wei-du-shu-dan/</a>
+                    <a href="https://www.kinson.fun/2023/05/31/notes/linux-chang-yong-ming-ling/">https://www.kinson.fun/2023/05/31/notes/linux-chang-yong-ming-ling/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -497,7 +511,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -540,7 +558,7 @@
         repo: 'Pensieve-Comments',
         owner: 'kinson-pensieve',
         admin: "kinson-bot",
-        id: '2021-03-14T05-32-00',
+        id: '2023-05-31T20-27-00',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -568,17 +586,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/03/14/read/yi-du-shu-dan/">
+                <a href="/2023/05/31/notes/linux-chang-yong-ming-ling/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="读书">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Linux 常用命令">
                         
-                        <span class="card-title">读书</span>
+                        <span class="card-title">Linux 常用命令</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -588,20 +607,33 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-05-31
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AF%BB%E4%B9%A6/" class="post-category">
-                                    读书
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    笔记
                                 </a>
                             
                             
                         </span>
                     </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -613,13 +645,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/12/pensieve/pensieve-xian-gei-shi-nian-hou-de-zi-ji/">
+                <a href="/2023/05/30/thoughts/xie-zai-qian-mian/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Pensieve —— 献给十年后的自己">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="写在前面">
                         
-                        <span class="card-title">Pensieve —— 献给十年后的自己</span>
+                        <span class="card-title">写在前面</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -630,7 +662,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-05-30
                             </span>
                         <span class="publish-author">
                             
@@ -647,8 +679,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Pensieve/">
-                        <span class="chip bg-color">Pensieve</span>
+                    <a href="/tags/Thoughts/">
+                        <span class="chip bg-color">Thoughts</span>
                     </a>
                     
                 </div>
