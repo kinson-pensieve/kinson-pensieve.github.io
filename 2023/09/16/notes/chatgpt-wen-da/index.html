@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="未读书单, Pensieve">
+    <meta name="keywords" content="ChatGPT 问答, Pensieve">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>未读书单 | Pensieve</title>
+    <title>ChatGPT 问答 | Pensieve</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -249,12 +249,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">未读书单</h1>
+                    <h1 class="description center-align post-title">ChatGPT 问答</h1>
                 </div>
             </div>
         </div>
@@ -368,9 +368,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%BF%90%E7%BB%B4/">
+                                <span class="chip bg-color">运维</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -378,8 +382,12 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%AF%BB%E4%B9%A6/" class="post-category">
-                                读书
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/ChatGPT/" class="post-category">
+                                ChatGPT
                             </a>
                         
                     </div>
@@ -391,7 +399,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-14
+                    2023-09-16
                 </div>
                 
 
@@ -400,7 +408,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    64
+                    1.1k
                 </div>
                 
 
@@ -420,20 +428,33 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="谋生"><a href="#谋生" class="headerlink" title="谋生"></a>谋生</h1><ul>
-<li>Kubernetes 源码剖析 2021年3月20日</li>
-<li>深入浅出Istio</li>
-<li>Docker技术入门与实战</li>
-</ul>
-<h1 id="谋心"><a href="#谋心" class="headerlink" title="谋心"></a>谋心</h1><ul>
-<li>王阳明全集</li>
-<li>你的生活需要仪式感</li>
-<li>国家地理系列之走遍中国</li>
-</ul>
-<h1 id="谋食"><a href="#谋食" class="headerlink" title="谋食"></a>谋食</h1><ul>
-<li>好吃易做大众菜</li>
-<li>吃得明白</li>
-</ul>
+                <h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><h3 id="net-ipv4-ip-forward的作用"><a href="#net-ipv4-ip-forward的作用" class="headerlink" title="net.ipv4.ip_forward的作用"></a>net.ipv4.ip_forward的作用</h3><pre><code>`net.ipv4.ip_forward`是一个内核参数，它控制着Linux内核是否将网络流量转发到其他网络接口。具体而言，`net.ipv4.ip_forward`参数决定了是否启用IPv4网络的IP转发功能。
+
+当`net.ipv4.ip_forward`设置为1时，表示启用IP转发功能。这意味着，当Linux主机作为一个中转节点时，它可以将经过它的数据包转发到其他网络接口。这对于实现网络中的路由功能非常重要，允许数据包通过不同的网络路径传输。
+
+然而，如果`net.ipv4.ip_forward`设置为0或禁用，则Linux主机将不会转发来自其他网络接口的数据包，而只会简单地接收和处理它们。这在某些情况下是有用的，例如当主机用作终端设备时。
+
+总而言之，`net.ipv4.ip_forward`参数对于网络路由和中转功能至关重要。在Kubernetes集群中，如果您需要将流量路由到集群的不同节点或通过不同的网络接口传递，可能需要启用该功能。
+</code></pre>
+<h3 id="如何在运行Docker容器之前设置-etc-hosts"><a href="#如何在运行Docker容器之前设置-etc-hosts" class="headerlink" title="如何在运行Docker容器之前设置/etc/hosts"></a>如何在运行Docker容器之前设置/etc/hosts</h3><h3 id="Docker容器有几种网络模式"><a href="#Docker容器有几种网络模式" class="headerlink" title="Docker容器有几种网络模式"></a>Docker容器有几种网络模式</h3><ol>
+<li><p>默认桥接网络模式（bridge）：这是Docker默认使用的网络模式。在这种模式下，Docker容器会通过虚拟网桥与宿主机进行通信，同时也可以与其他容器互相通信。Docker会为每个容器分配一个IP地址。</p>
+</li>
+<li><p>主机网络模式（host）：在主机网络模式下，Docker容器与宿主机共享网络栈。这意味着容器使用宿主机的网络接口，获取与宿主机相同的IP地址。容器中的应用程序可以通过宿主机上的端口直接与外部通信，而无需进行端口映射。</p>
+</li>
+<li><p>容器网络模式（container）：在容器网络模式下，Docker容器可以将网络栈与另一个已运行的容器进行共享。这使得容器之间可以直接通过本地主机进行通信，而无需通过主机网络接口。</p>
+</li>
+<li><p>无网络模式（none）：在无网络模式下，Docker容器没有网络连接。这意味着容器将无法通过网络访问外部资源或其他容器。</p>
+</li>
+</ol>
+<p>此外，Docker还支持自定义网络模式，允许用户创建自己的网络。这些自定义网络模式可以为容器之间提供安全隔离和私有网络环境，还可以通过连接到外部网络来实现与外部通信。你可以使用docker network create命令创建自定义网络，并使用–network标志将容器连接到指定的网络。</p>
+<h2 id="GO"><a href="#GO" class="headerlink" title="GO"></a>GO</h2><h3 id="go-routine比传统的线程切换节省了多少内存资源"><a href="#go-routine比传统的线程切换节省了多少内存资源" class="headerlink" title="go routine比传统的线程切换节省了多少内存资源"></a>go routine比传统的线程切换节省了多少内存资源</h3><pre><code>相比于传统的线程模型，Goroutine 的内存消耗较低，因为 Goroutine 的设计使得创建和销毁的开销非常小。传统的线程模型通常会分配更多的堆栈空间来支持并发执行，而 Goroutine 则使用了可动态伸缩的堆栈空间来适应实际需要，这使得 Goroutine 的内存消耗更为高效。
+
+具体来说，传统线程模型中，每个线程都需要固定大小的堆栈（通常是几兆字节），不管实际任务的需求大小。而 Goroutine 只使用必要的堆栈空间，例如默认情况下每个 Goroutine 会分配一个很小的堆栈（例如几千字节），在需要更多空间时动态伸缩。
+
+由于 Goroutine 的堆栈动态伸缩和内存消耗较低的特点，可以在同一个程序中创建数量众多的 Goroutine 而不会消耗过多的内存资源。这使得在实现高并发和大规模任务处理时，Goroutine 提供了更为高效的方式，并可以更好地利用可用的内存资源。
+
+然而，具体的节省量取决于应用程序的设计和优化程度，并且会因应用程序的实际场景而有所不同。因此，无法给出一个具体的数字来表示 Goroutine 相对于传统方式的内存节省量。最佳的内存优化策略需要根据应用程序的需求和实际性能分析来确定。
+</code></pre>
 
                 
             </div>
@@ -460,7 +481,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.kinson.fun/2021/03/14/read/wei-du-shu-dan/">https://www.kinson.fun/2021/03/14/read/wei-du-shu-dan/</a>
+                    <a href="https://www.kinson.fun/2023/09/16/notes/chatgpt-wen-da/">https://www.kinson.fun/2023/09/16/notes/chatgpt-wen-da/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -497,7 +518,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E8%BF%90%E7%BB%B4/">
+                                    <span class="chip bg-color">运维</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -540,7 +565,7 @@
         repo: 'Pensieve-Comments',
         owner: 'kinson-pensieve',
         admin: "kinson-bot",
-        id: '2021-03-14T05-32-00',
+        id: '2023-09-16T22-05-43',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -568,17 +593,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/03/14/read/yi-du-shu-dan/">
+                <a href="/2023/09/16/notes/chatgpt-wen-da/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="读书">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="ChatGPT 问答">
                         
-                        <span class="card-title">读书</span>
+                        <span class="card-title">ChatGPT 问答</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -588,20 +614,33 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-16
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AF%BB%E4%B9%A6/" class="post-category">
-                                    读书
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/ChatGPT/" class="post-category">
+                                    ChatGPT
                                 </a>
                             
                             
                         </span>
                     </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%BF%90%E7%BB%B4/">
+                        <span class="chip bg-color">运维</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -613,13 +652,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/12/pensieve/pensieve-xian-gei-shi-nian-hou-de-zi-ji/">
+                <a href="/2023/05/31/notes/linux-chang-yong-ming-ling/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Pensieve —— 献给十年后的自己">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Linux 常用命令">
                         
-                        <span class="card-title">Pensieve —— 献给十年后的自己</span>
+                        <span class="card-title">Linux 常用命令</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -630,14 +669,18 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-05-31
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%83%B3%E6%B3%95/" class="post-category">
-                                    想法
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    笔记
                                 </a>
                             
                             
@@ -647,8 +690,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Pensieve/">
-                        <span class="chip bg-color">Pensieve</span>
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
                     </a>
                     
                 </div>
