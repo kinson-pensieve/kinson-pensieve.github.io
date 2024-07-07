@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ChatGPT 问答, Pensieve">
+    <meta name="keywords" content="进程、线程、协程, Pensieve">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>ChatGPT 问答 | Pensieve</title>
+    <title>进程、线程、协程 | Pensieve</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -249,12 +249,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">ChatGPT 问答</h1>
+                    <h1 class="description center-align post-title">进程、线程、协程</h1>
                 </div>
             </div>
         </div>
@@ -370,8 +370,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%BF%90%E7%BB%B4/">
-                                <span class="chip bg-color">运维</span>
+                            <a href="/tags/%E8%BF%9B%E7%A8%8B/">
+                                <span class="chip bg-color">进程</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%BA%BF%E7%A8%8B/">
+                                <span class="chip bg-color">线程</span>
                             </a>
                         
                     </div>
@@ -382,12 +386,12 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
-                                技术
+                            <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                操作系统
                             </a>
                         
-                            <a href="/categories/%E6%8A%80%E6%9C%AF/ChatGPT/" class="post-category">
-                                ChatGPT
+                            <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="post-category">
+                                计算机基础
                             </a>
                         
                     </div>
@@ -399,7 +403,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-09-16
+                    2021-07-06
                 </div>
                 
 
@@ -408,7 +412,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    3k
                 </div>
                 
 
@@ -428,33 +432,61 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><h3 id="net-ipv4-ip-forward的作用"><a href="#net-ipv4-ip-forward的作用" class="headerlink" title="net.ipv4.ip_forward的作用"></a>net.ipv4.ip_forward的作用</h3><pre><code>`net.ipv4.ip_forward`是一个内核参数，它控制着Linux内核是否将网络流量转发到其他网络接口。具体而言，`net.ipv4.ip_forward`参数决定了是否启用IPv4网络的IP转发功能。
-
-当`net.ipv4.ip_forward`设置为1时，表示启用IP转发功能。这意味着，当Linux主机作为一个中转节点时，它可以将经过它的数据包转发到其他网络接口。这对于实现网络中的路由功能非常重要，允许数据包通过不同的网络路径传输。
-
-然而，如果`net.ipv4.ip_forward`设置为0或禁用，则Linux主机将不会转发来自其他网络接口的数据包，而只会简单地接收和处理它们。这在某些情况下是有用的，例如当主机用作终端设备时。
-
-总而言之，`net.ipv4.ip_forward`参数对于网络路由和中转功能至关重要。在Kubernetes集群中，如果您需要将流量路由到集群的不同节点或通过不同的网络接口传递，可能需要启用该功能。
-</code></pre>
-<h3 id="如何在运行Docker容器之前设置-etc-hosts"><a href="#如何在运行Docker容器之前设置-etc-hosts" class="headerlink" title="如何在运行Docker容器之前设置/etc/hosts"></a>如何在运行Docker容器之前设置/etc/hosts</h3><h3 id="Docker容器有几种网络模式"><a href="#Docker容器有几种网络模式" class="headerlink" title="Docker容器有几种网络模式"></a>Docker容器有几种网络模式</h3><ol>
-<li><p>默认桥接网络模式（bridge）：这是Docker默认使用的网络模式。在这种模式下，Docker容器会通过虚拟网桥与宿主机进行通信，同时也可以与其他容器互相通信。Docker会为每个容器分配一个IP地址。</p>
-</li>
-<li><p>主机网络模式（host）：在主机网络模式下，Docker容器与宿主机共享网络栈。这意味着容器使用宿主机的网络接口，获取与宿主机相同的IP地址。容器中的应用程序可以通过宿主机上的端口直接与外部通信，而无需进行端口映射。</p>
-</li>
-<li><p>容器网络模式（container）：在容器网络模式下，Docker容器可以将网络栈与另一个已运行的容器进行共享。这使得容器之间可以直接通过本地主机进行通信，而无需通过主机网络接口。</p>
-</li>
-<li><p>无网络模式（none）：在无网络模式下，Docker容器没有网络连接。这意味着容器将无法通过网络访问外部资源或其他容器。</p>
-</li>
+                <h2 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h2><p>首先来一句概括的总论：进程和线程都是对一个时间段的描述，对CPU工作时间段的描述。</p>
+<p>我们的电脑是由 CPU + RAM + 各种资源（比如显卡，光驱，键盘，GPS，等等）构成的，但是电脑的运行，归根结底只是CPU和相关寄存器，以及RAM之间的事情。</p>
+<h3 id="关于CPU"><a href="#关于CPU" class="headerlink" title="关于CPU"></a>关于CPU</h3><p>CPU太快，太快，太快了，寄存器仅仅能够追的上他的脚步，RAM和别的挂在各总线上的设备完全是望其项背。那当多个任务要执行的时候怎么办呢？轮流着来?或者谁优先级高谁来？不管怎么样的策略，一句话就是在CPU看来就是轮流着来。</p>
+<h3 id="关于程序"><a href="#关于程序" class="headerlink" title="关于程序"></a>关于程序</h3><p>当程序执行中得到CPU的时候，相关的资源必须也已经就位，就是显卡啊什么的必须就位，然后CPU开始执行。这里除了CPU，以外的所有就构成了这个程序的执行环境，也就是我们所定义的程序上下文。当这个程序执行完了，或者分配给他的CPU执行时间用完了，那它就要被切换出去，等待下一次CPU的临幸。在被切换出去的最后一步工作就是保存程序上下文，因为这个是下次他被CPU临幸的运行环境，必须保存。</p>
+<h3 id="程序调度"><a href="#程序调度" class="headerlink" title="程序调度"></a>程序调度</h3><p>前面讲过在CPU看来，所有的程序都是一个一个轮流执行的，具体的轮流方法是：先加载程序A的上下文，然后开始执行A，保存程序A的上下文，调入下一个要执行的程序B的程序上下文，然后开始执行B,保存程序B的上下文。如此循环往复……</p>
+<h3 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h3><p>进程和线程，就是在这样的背景之下诞生的。</p>
+<p>进程就是包换上下文切换的程序执行时间总和 = CPU加载上下文 + CPU执行 + CPU保存上下文</p>
+<p>那么线程是什么呢？进程的颗粒度太大，每次都要有上下的调入，保存，调出。如果我们把进程比喻为一个运行在电脑上的软件，那么一个软件的执行不可能是一条逻辑执行的，必定有多个分支和多个程序段，就好比要实现程序A，实际分成 a，b，c等多个块组合而成。那么这里具体的执行就可能变成：</p>
+<ol>
+<li> 程序A得到CPU</li>
+<li> CPU加载上下文</li>
+<li> 执行A的a小段</li>
+<li> 执行A的b小段</li>
+<li> 执行A的c小段</li>
+<li> CPU保存A的上下文</li>
 </ol>
-<p>此外，Docker还支持自定义网络模式，允许用户创建自己的网络。这些自定义网络模式可以为容器之间提供安全隔离和私有网络环境，还可以通过连接到外部网络来实现与外部通信。你可以使用docker network create命令创建自定义网络，并使用–network标志将容器连接到指定的网络。</p>
-<h2 id="GO"><a href="#GO" class="headerlink" title="GO"></a>GO</h2><h3 id="go-routine比传统的线程切换节省了多少内存资源"><a href="#go-routine比传统的线程切换节省了多少内存资源" class="headerlink" title="go routine比传统的线程切换节省了多少内存资源"></a>go routine比传统的线程切换节省了多少内存资源</h3><pre><code>相比于传统的线程模型，Goroutine 的内存消耗较低，因为 Goroutine 的设计使得创建和销毁的开销非常小。传统的线程模型通常会分配更多的堆栈空间来支持并发执行，而 Goroutine 则使用了可动态伸缩的堆栈空间来适应实际需要，这使得 Goroutine 的内存消耗更为高效。
-
-具体来说，传统线程模型中，每个线程都需要固定大小的堆栈（通常是几兆字节），不管实际任务的需求大小。而 Goroutine 只使用必要的堆栈空间，例如默认情况下每个 Goroutine 会分配一个很小的堆栈（例如几千字节），在需要更多空间时动态伸缩。
-
-由于 Goroutine 的堆栈动态伸缩和内存消耗较低的特点，可以在同一个程序中创建数量众多的 Goroutine 而不会消耗过多的内存资源。这使得在实现高并发和大规模任务处理时，Goroutine 提供了更为高效的方式，并可以更好地利用可用的内存资源。
-
-然而，具体的节省量取决于应用程序的设计和优化程度，并且会因应用程序的实际场景而有所不同。因此，无法给出一个具体的数字来表示 Goroutine 相对于传统方式的内存节省量。最佳的内存优化策略需要根据应用程序的需求和实际性能分析来确定。
-</code></pre>
+<p>这里a，b，c的执行是共享了A的上下文，CPU在执行的时候没有进行上下文切换的。这里的a，b，c就是线程，也就是说线程是共享了进程的上下文环境，的更为细小的CPU时间段。</p>
+<h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><p>进程是在系统中能独立运行并作为资源分配的基本单位，它是由一组机器指令、数据和堆栈等组成的，是一个能独立运行的活动实体。</p>
+<p>注意：进程一般有三个状态,<code>就绪状态</code>、<code>执行状态</code>和<code>等待状态</code>(或称<code>阻塞状态</code>)。进程只能由父进程建立，系统中所有的进程形成一种进程树的层次体系。挂起命令可由进程自己和其他进程发出，但是解除挂起命令只能由其他进程发出。</p>
+<h3 id="进程控制块（PCB）"><a href="#进程控制块（PCB）" class="headerlink" title="进程控制块（PCB）"></a>进程控制块（PCB）</h3><p>PCB不但可以记录进程的属性信息，以便操作系统对进程进行控制和管理，而且PCB标志着进程的存在，操作系统根据系统中是否有该进程的进程控制块PCB而知道该进程存在与否。系统建立进程的同时就建立该进程的PCB，在撤销一个进程时，也就撤销其PCB，故进程的PCB对进程来说是它存在的具体的物理标志和体现。</p>
+<p>一般PCB包括以下三类信息：<code>进程标识信息</code>，<code>处理器状态信息</code>，<code>进程控制信息</code>。</p>
+<p>由程序段、相关的数据段和PCB三部分构成了进程实体（又称进程印像），一般，我们把进程实体就简称为进程。</p>
+<h3 id="进程的特征"><a href="#进程的特征" class="headerlink" title="进程的特征"></a>进程的特征</h3><ol>
+<li> 动态性：  进程的实质是程序的一次执行过程，进程是动态产生，动态消亡的。</li>
+<li> 并发性：  任何进程都可以同其他进程一起并发执行。</li>
+<li> 独立性：  进程是一个能独立运行的基本单位，同时也是系统分配资源和调度的独立单位。</li>
+<li> 异步性：  由于进程间的相互制约，使进程具有执行的间断性，即进程按各自独立的、不可预知的速度向前推进。</li>
+</ol>
+<h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><p>线程是进程中的一个实体，作为系统调度和分派的基本单位。 Linux 下的线程看作轻量级进程。</p>
+<h3 id="线程的性质"><a href="#线程的性质" class="headerlink" title="线程的性质"></a>线程的性质</h3><ol>
+<li> 线程是进程内的一个相对独立的可执行的单元。若把进程称为任务的话，那么线程则是应用中的一个子任务的执行。</li>
+<li> 由于线程是被调度的基本单元，而进程不是调度单元。所以，每个进程在创建时，至少需要同时为该进程创建一个线程。即进程中至少要有一个或一个以上的线程，否则该进程无法被调度执行。</li>
+<li> 进程是被分给并拥有资源的基本单元。同一进程内的多个线程共享该进程的资源，但线程并不拥有资源，只是使用他们。</li>
+<li> 线程是操作系统中基本调度单元，因此线程中应包含有调度所需要的必要信息，且在生命周期中有状态的变化。</li>
+<li> 由于共享资源【包括数据和文件】，所以线程间需要通信和同步机制，且需要时线程可以创建其他线程，但线程间不存在父子关系。</li>
+</ol>
+<h3 id="多线程使用的情形"><a href="#多线程使用的情形" class="headerlink" title="多线程使用的情形"></a>多线程使用的情形</h3><ul>
+<li>前台和后台工作情况</li>
+<li>异步处理工作情况</li>
+<li>需要加快执行速度情况</li>
+<li>组织复杂工作的情况</li>
+<li>同时有多个用户服务请求的情况等。</li>
+</ul>
+<h3 id="线程机制的优点："><a href="#线程机制的优点：" class="headerlink" title="线程机制的优点："></a>线程机制的优点：</h3><p>多线程运行在同一个进程的相同的地址空间内，和采用多进程相比有以下优点：</p>
+<ol>
+<li> 创建和撤销线程的开销较之进程要少。创建线程时只需要建立线程控制表相应的表目，或有关队列，而创建进程时，要创建PCB表和初始化，进入有关进程队列，建立它的地址空间和所需资源等。</li>
+<li> CPU在线程之间开关时的开销远比进程要少得多。因开关线程都在同一地址空间内，只需要修改线程控制表或队列，不涉及地址空间和其他工作。</li>
+<li> 线程机制也增加了通讯的有效性。进程间的通讯往往要求内核的参与，以提供通讯机制和保护机制，而线程间的通讯是在同一进程的地址空间内，共享主存和文件，无需内核参与。</li>
+</ol>
+<h3 id="进程和线程的区别"><a href="#进程和线程的区别" class="headerlink" title="进程和线程的区别"></a>进程和线程的区别</h3><h4 id="调度"><a href="#调度" class="headerlink" title="调度"></a>调度</h4><p>在传统的操作系统中，CPU调度和分派的基本单位是进程。而在引入线程的操作系统中，则把线程作为CPU调度和分派的基本单位，进程则作为资源拥有的基本单位，从而使传统进程的两个属性分开，线程编程轻装运行，这样可以显著地提高系统的并发性。同一进程中线程的切换不会引起进程切换，从而避免了昂贵的系统调用，但是在由一个进程中的线程切换到另一进程中的线程，依然会引起进程切换。</p>
+<h4 id="并发性"><a href="#并发性" class="headerlink" title="并发性"></a>并发性</h4><p>在引入线程的操作系统中，不仅进程之间可以并发执行，而且在一个进程中的多个线程之间也可以并发执行，因而使操作系统具有更好的并发性，从而更有效地提高系统资源和系统的吞吐量。例如，在一个为引入线程的单CPU操作系统中，若仅设置一个文件服务进程，当它由于某种原因被封锁时，便没有其他的文件服务进程来提供服务。在引入线程的操作系统中，可以在一个文件服务进程设置多个服务线程。当第一个线程等待时，文件服务进程中的第二个线程可以继续运行；当第二个线程封锁时，第三个线程可以继续执行，从而显著地提高了文件服务的质量以及系统的吞吐量。</p>
+<h4 id="拥有资源"><a href="#拥有资源" class="headerlink" title="拥有资源"></a>拥有资源</h4><p>不论是引入了线程的操作系统，还是传统的操作系统，进程都是拥有系统资源的一个独立单位，他可以拥有自己的资源。一般地说，线程自己不能拥有资源（也有一点必不可少的资源），但它可以访问其隶属进程的资源，亦即一个进程的代码段、数据段以及系统资源（如已打开的文件、I/O设备等），可供同一个进程的其他所有线程共享。</p>
+<h4 id="独立性"><a href="#独立性" class="headerlink" title="独立性"></a>独立性</h4><p>在同一进程中的不同线程之间的独立性要比不同进程之间的独立性低得多。这是为了防止进程之间彼此干扰和破坏，每个进程都拥有一个独立的地址空间和其它资源，除了共享全局变量外，不允许其它进程的访问。但是同一进程中的不同线程往往是为了提高并发性以及进行相互之间的合作而创建的，它们共享进程的内存地址空间和资源，如每个线程都可以访问它们所属进程地址空间中的所有地址，如一个线程的堆栈可以被其它线程读、写，甚至完全清除。</p>
+<h4 id="系统开销"><a href="#系统开销" class="headerlink" title="系统开销"></a>系统开销</h4><p>由于在创建或撤销进程时，系统都要为之分配或回收资源，如内存空间、I/O设备等。因此，操作系统为此所付出的开销将显著地大于在创建或撤消线程时的开销。类似的，在进程切换时，涉及到整个当前进程CPU环境的保存环境的设置以及新被调度运行的CPU环境的设置，而线程切换只需保存和设置少量的寄存器的内容，并不涉及存储器管理方面的操作，可见，进程切换的开销也远大于线程切换的开销。此外，由于同一进程中的多个线程具有相同的地址空间，致使他们之间的同步和通信的实现也变得比较容易。在有的系统中，现成的切换、同步、和通信都无需操作系统内核的干预。</p>
+<h4 id="支持多处理机系统"><a href="#支持多处理机系统" class="headerlink" title="支持多处理机系统"></a>支持多处理机系统</h4><p>在多处理机系统中，对于传统的进程，即单线程进程，不管有多少处理机，该进程只能运行在一个处理机上。但对于多线程进程，就可以将一个进程中的多个线程分配到多个处理机上，使它们并行执行，这无疑将加速进程的完成。因此，现代处理机OS都无一例外地引入了多线程。</p>
 
                 
             </div>
@@ -481,7 +513,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.kinson.fun/2023/09/16/notes/chatgpt-wen-da/">https://www.kinson.fun/2023/09/16/notes/chatgpt-wen-da/</a>
+                    <a href="https://www.kinson.fun/2021/07/06/notes/tech/jin-cheng-xian-cheng-xie-cheng/">https://www.kinson.fun/2021/07/06/notes/tech/jin-cheng-xian-cheng-xie-cheng/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -519,8 +551,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E8%BF%90%E7%BB%B4/">
-                                    <span class="chip bg-color">运维</span>
+                                <a href="/tags/%E8%BF%9B%E7%A8%8B/">
+                                    <span class="chip bg-color">进程</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%BA%BF%E7%A8%8B/">
+                                    <span class="chip bg-color">线程</span>
                                 </a>
                             
                         </div>
@@ -565,7 +601,7 @@
         repo: 'Pensieve-Comments',
         owner: 'kinson-pensieve',
         admin: "kinson-bot",
-        id: '2023-09-16T22-05-43',
+        id: '2021-07-06T20-43-26',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -597,13 +633,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/09/23/notes/travels/malaysia/">
+                <a href="/2021/07/07/notes/tech/docker-pei-zhi-wen-jian-xiang-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="马来西亚之旅">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Docker配置文件详解">
                         
-                        <span class="card-title">马来西亚之旅</span>
+                        <span class="card-title">Docker配置文件详解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -614,14 +650,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-09-23
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-07
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%97%85%E8%A1%8C/" class="post-category">
-                                    旅行
+                            <a href="/categories/Docker/" class="post-category">
+                                    Docker
                                 </a>
                             
                             
@@ -631,12 +667,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%A9%AC%E6%9D%A5%E8%A5%BF%E4%BA%9A/">
-                        <span class="chip bg-color">马来西亚</span>
-                    </a>
-                    
-                    <a href="/tags/%E4%BA%9A%E5%BA%87/">
-                        <span class="chip bg-color">亚庇</span>
+                    <a href="/tags/Docker%E9%85%8D%E7%BD%AE/">
+                        <span class="chip bg-color">Docker配置</span>
                     </a>
                     
                 </div>
@@ -650,13 +682,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/05/31/notes/linux/linux-chang-yong-ming-ling/">
+                <a href="/2021/06/18/notes/consul-xue-xi-bi-ji/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Linux 常用命令">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Consul使用笔记">
                         
-                        <span class="card-title">Linux 常用命令</span>
+                        <span class="card-title">Consul使用笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -667,7 +699,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-05-31
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-18
                             </span>
                         <span class="publish-author">
                             
@@ -677,8 +709,8 @@
                                     技术
                                 </a>
                             
-                            <a href="/categories/%E6%8A%80%E6%9C%AF/%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    笔记
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/" class="post-category">
+                                    开源软件
                                 </a>
                             
                             
@@ -688,8 +720,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
+                    <a href="/tags/Consul/">
+                        <span class="chip bg-color">Consul</span>
                     </a>
                     
                 </div>
@@ -885,7 +917,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2021-2023</span>
+                <span id="year">2021-2024</span>
             
             <span id="year">2021</span>
             <a href="/about" target="_blank">Kinson Liu</a>
@@ -894,7 +926,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">43k</span>
+                        class="white-color">43.5k</span>
             
             
             
