@@ -408,7 +408,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.3k
                 </div>
                 
 
@@ -714,10 +714,21 @@ helm <span class="token function">install</span> rancher rancher-latest/rancher 
 
 <h3 id="longhorn"><a href="#longhorn" class="headerlink" title="longhorn"></a>longhorn</h3><h4 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt-get</span> <span class="token function">install</span> open-iscsi jq <span class="token function">curl</span> util-linux nfs-common <span class="token parameter variable">-y</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>使用Rancher App 安装，当然，也可以通过 Helm 来创建</p>
-<h3 id="Minio-Operator"><a href="#Minio-Operator" class="headerlink" title="Minio Operator"></a>Minio Operator</h3><h4 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h4><p>参考<a target="_blank" rel="noopener" href="https://min.io/docs/minio/kubernetes/upstream/operations/install-deploy-manage/deploy-operator-helm.html#">文档</a></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">helm <span class="token function">install</span> minio minio/ <span class="token parameter variable">-n</span> minio --create-namespace<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="Cert-Manager"><a href="#Cert-Manager" class="headerlink" title="Cert Manager"></a>Cert Manager</h3><h4 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">helm repo <span class="token function">add</span> cert-manager https://charts.jetstack.io
+helm <span class="token function">install</span> cert-manager cert-manager/cert-manager <span class="token parameter variable">-n</span> cert-manager --create-namespace <span class="token punctuation">\</span>
+  <span class="token parameter variable">--set</span> <span class="token assign-left variable">crds.enabled</span><span class="token operator">=</span>true <span class="token punctuation">\</span>
+  <span class="token parameter variable">--set</span> <span class="token string">"approveSignerNames={issuers.cert-manager.io/*,clusterissuers.cert-manager.io/*,kubernetes.io/*}"</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">--set</span> <span class="token assign-left variable">image.repository</span><span class="token operator">=</span>registry.kinson.fun/jetstack/cert-manager-controller <span class="token punctuation">\</span>
+  <span class="token parameter variable">--set</span> <span class="token assign-left variable">webhook.image.repository</span><span class="token operator">=</span>registry.kinson.fun/jetstack/cert-manager-webhook <span class="token punctuation">\</span>
+  <span class="token parameter variable">--set</span> <span class="token assign-left variable">cainjector.image.repository</span><span class="token operator">=</span>registry.kinson.fun/jetstack/cert-manager-cainjector <span class="token punctuation">\</span>
+  <span class="token parameter variable">--set</span> <span class="token assign-left variable">acmesolver.image.repository</span><span class="token operator">=</span>registry.kinson.fun/jetstack/cert-manager-acmesolver <span class="token punctuation">\</span>
+  <span class="token parameter variable">--set</span> <span class="token assign-left variable">startupapicheck.image.repository</span><span class="token operator">=</span>registry.kinson.fun/jetstack/cert-manager-startupapicheck<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="Minio-Operator"><a href="#Minio-Operator" class="headerlink" title="Minio Operator"></a>Minio Operator</h3><h4 id="安装-2"><a href="#安装-2" class="headerlink" title="安装"></a>安装</h4><p>参考<a target="_blank" rel="noopener" href="https://min.io/docs/minio/kubernetes/upstream/operations/install-deploy-manage/deploy-operator-helm.html#">文档</a></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">helm <span class="token function">install</span> minio-operator minio-operator/operator <span class="token parameter variable">-n</span> minio-operator   --create-namespace <span class="token punctuation">\</span>
+  <span class="token parameter variable">--set</span> <span class="token assign-left variable">operator.image.repository</span><span class="token operator">=</span><span class="token string">"registry.kinson.fun/minio/operator"</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">--set</span> <span class="token assign-left variable">console.image.repository</span><span class="token operator">=</span><span class="token string">"registry.kinson.fun/minio/operator"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="Tekton"><a href="#Tekton" class="headerlink" title="Tekton"></a>Tekton</h3><p>Tekton，谷歌是你爹是吧？gcr的镜像一环套一环……<br>搜了一下发现，还真TM是……</p>
-<h4 id="安装-2"><a href="#安装-2" class="headerlink" title="安装"></a>安装</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">kubectl apply <span class="token parameter variable">-f</span> https://storage.googleapis.com/tekton-releases/operator/latest/release.yaml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="安装-3"><a href="#安装-3" class="headerlink" title="安装"></a>安装</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">kubectl apply <span class="token parameter variable">-f</span> https://storage.googleapis.com/tekton-releases/operator/latest/release.yaml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>Apply 前，要将所有gcr地址改成私有仓库地址</p>
 <blockquote>
 <p>注意：Apply之后需要更改 CRD:TektonInstallerSets 中的所有镜像配置为私有仓库的地址。</p>
@@ -729,7 +740,7 @@ helm <span class="token function">install</span> rancher rancher-latest/rancher 
   <span class="token parameter variable">--wait</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<h3 id="Argo-CD"><a href="#Argo-CD" class="headerlink" title="Argo CD"></a>Argo CD</h3><h4 id="安装-3"><a href="#安装-3" class="headerlink" title="安装"></a>安装</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">helm repo <span class="token function">add</span> argo https://argoproj.github.io/argo-helm
+<h3 id="Argo-CD"><a href="#Argo-CD" class="headerlink" title="Argo CD"></a>Argo CD</h3><h4 id="安装-4"><a href="#安装-4" class="headerlink" title="安装"></a>安装</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">helm repo <span class="token function">add</span> argo https://argoproj.github.io/argo-helm
 helm repo update
 helm <span class="token function">install</span> argo-cd argo/argo-cd <span class="token parameter variable">--version</span> <span class="token number">7.3</span>.4 <span class="token parameter variable">-n</span> argo-cd --create-namespace <span class="token punctuation">\</span>
   <span class="token parameter variable">--set</span> <span class="token assign-left variable">global.domain</span><span class="token operator">=</span><span class="token string">"argo-cd.kinson.fun"</span> <span class="token punctuation">\</span>
@@ -1173,7 +1184,7 @@ helm <span class="token function">install</span> argo-cd argo/argo-cd <span clas
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">42k</span>
+                        class="white-color">42.6k</span>
             
             
             
