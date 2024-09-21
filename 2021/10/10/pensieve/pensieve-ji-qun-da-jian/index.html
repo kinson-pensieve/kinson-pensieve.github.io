@@ -408,7 +408,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.5k
                 </div>
                 
 
@@ -749,7 +749,26 @@ helm <span class="token function">install</span> argo-cd argo/argo-cd <span clas
   <span class="token parameter variable">--set</span> <span class="token assign-left variable">redis.enabled</span><span class="token operator">=</span><span class="token string">"false"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="默认密码"><a href="#默认密码" class="headerlink" title="默认密码"></a>默认密码</h4><p>kubectl -n argo-cd get secret argocd-initial-admin-secret -o jsonpath=”{.data.password}” | base64 -d</p>
+<h3 id="Nextcloud"><a href="#Nextcloud" class="headerlink" title="Nextcloud"></a>Nextcloud</h3><p>helm install nextcloud nextcloud/nextcloud <br>  –create-namespace <br>  –namespace nextcloud <br>  –set image.repository=”registry.kinson.fun/nextcloud” <br>  –set nextcloud.host=”nextcloud.kinson.fun” <br>  –set nextcloud.password=”password”</p>
+<h3 id="Argo-Workflow"><a href="#Argo-Workflow" class="headerlink" title="Argo-Workflow"></a>Argo-Workflow</h3><h4 id="安装-5"><a href="#安装-5" class="headerlink" title="安装"></a>安装</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">helm repo <span class="token function">add</span> argo https://argoproj.github.io/argo-helm
+helm <span class="token function">install</span> argo-workflows argo/argo-workflows <span class="token punctuation">\</span>
+  <span class="token parameter variable">--version</span> <span class="token number">0.42</span>.1 <span class="token punctuation">\</span>
+  <span class="token parameter variable">--namespace</span> argo <span class="token punctuation">\</span>
+  --create-namespace <span class="token punctuation">\</span>
+  <span class="token parameter variable">--set</span> <span class="token assign-left variable">workflow.serviceAccount.create</span><span class="token operator">=</span><span class="token string">"true"</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">--set</span> <span class="token assign-left variable">controller.image.registry</span><span class="token operator">=</span><span class="token string">"registry.kinson.fun"</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">--set</span> <span class="token assign-left variable">server.image.registry</span><span class="token operator">=</span><span class="token string">"registry.kinson.fun"</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">--set</span> <span class="token assign-left variable">executor.image.registry</span><span class="token operator">=</span><span class="token string">"registry.kinson.fun"</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">--set</span> <span class="token assign-left variable">singleNamespace</span><span class="token operator">=</span><span class="token string">"true"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h3 id="Argo-Events"><a href="#Argo-Events" class="headerlink" title="Argo-Events"></a>Argo-Events</h3><h4 id="安装-6"><a href="#安装-6" class="headerlink" title="安装"></a>安装</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">helm repo <span class="token function">add</span> argo https://argoproj.github.io/argo-helm
+helm <span class="token function">install</span> argo-events argo/argo-events <span class="token punctuation">\</span>
+  <span class="token parameter variable">--namespace</span> argo <span class="token punctuation">\</span>
+  --create-namespace <span class="token punctuation">\</span>
+  <span class="token parameter variable">--set</span> <span class="token assign-left variable">global.image.repository</span><span class="token operator">=</span><span class="token string">"registry.kinson.fun/argoproj/argo-events"</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">--set</span> configs.jetstream.versions<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>.natsImage<span class="token operator">=</span><span class="token string">"registry.kinson.fun/nats:2.10.10"</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">--set</span> configs.jetstream.versions<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>.metricsExporterImage<span class="token operator">=</span><span class="token string">"registry.kinson.fun/natsio/prometheus-nats-exporter:0.14.0"</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">--set</span> configs.jetstream.versions<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>.configReloaderImage<span class="token operator">=</span><span class="token string">"registry.kinson.fun/natsio/nats-server-config-reloader:0.14.0"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -1184,7 +1203,7 @@ helm <span class="token function">install</span> argo-cd argo/argo-cd <span clas
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">42.6k</span>
+                        class="white-color">44k</span>
             
             
             
